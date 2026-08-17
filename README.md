@@ -1,11 +1,11 @@
-# Multimodal RAG 知识库系统
+# Intelligent-manufacturing RAG 知识库系统
 
 基于 LangGraph 构建的企业级多模态 RAG（Retrieval-Augmented Generation）知识库系统，支持 多模态 文档的自动化导入、向量化存储，以及多路检索增强生成的智能问答。
 
 ## 核心功能
 
 ### 知识导入
-- **多模态(pdf)文件上传**：通过 Web 界面上传文档，自动解析处理
+- **多模态(pdf等)文件上传**：通过 Web 界面上传文档，自动解析处理
 - **转 Markdown**：集成 MinerU 服务，将 文件 精准转换为 Markdown 格式，后续进行数据清洗
 - **图片处理**：自动提取文档中的图片并上传至 MinIO 对象存储
 - **文档智能分块**：支持多种分块策略，适配不同模型上下文窗口
@@ -17,6 +17,7 @@
 - **多路检索融合**：向量搜索 + HyDE 假设文档搜索 + 知识图谱查询 + Web 搜索四路并行
 - **RRF 融合排序**：对多路检索结果进行倒数排列融合
 - **BGE-Reranker 重排序**：对候选文档进行精细重排，提升相关性
+- **MongoDB 实体锚定**：实体名称确认，问题重写与加速检索
 - **Redis 语义缓存**：基于语义相似度的缓存命中，减少重复 LLM 调用
 - **Ragas 评估框架**：集成 ContextPrecision / ContextRecall / ResponseRelevancy / Faithfulness 评估
 - **流式 SSE 输出**：支持 Server-Sent Events 流式返回答案
@@ -230,3 +231,6 @@ python app/tool/download_reranker.py
 → RRF 融合排序 → BGE-Reranker 重排 → Ragas 检索评估
 → LLM 答案生成 → Eva 生成评估 → 流式输出答案
 ```
+
+### 测试案例
+![](./image.png)
