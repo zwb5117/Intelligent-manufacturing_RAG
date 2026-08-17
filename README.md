@@ -232,5 +232,5 @@ python app/tool/download_reranker.py
 → LLM 答案生成 → Eva 生成评估 → 流式输出答案
 ```
 
-### 测试案例
-![](./image.png)
+### 使用案例
+![example1](./image.png)
